@@ -2,8 +2,8 @@ import mysql.connector
 import os
 import shutil
 from database import most_pop_file
-import MySQLdb
-import dotenv
+#import MySQLdb
+#import dotenv
 
 # token_path = dotenv.find_dotenv()
 # dotenv.load_dotenv(dotenv_path=token_path)
@@ -21,21 +21,21 @@ main_path = os.getenv('main_path')
 
 fds = os.listdir(main_path + '/result')
 
-mydb = MySQLdb.connect(host="rc1a-zuyqcvblbiqlxj7m.mdb.yandexcloud.net",
-                       port=3306,
-                       user="artem",
-                       passwd="898989qW!",
-                       db="bmc",
-                       # ssl={'ca': '~/.mysql/root.crt'})
-                       ssl={'ca': '/Users/artem/.mysql/root.crt'}
-                       )
+#mydb = MySQLdb.connect(host="rc1a-zuyqcvblbiqlxj7m.mdb.yandexcloud.net",
+#                       port=3306,
+#                       user="artem",
+#                       passwd="898989qW!",
+#                       db="bmc",
+#                       # ssl={'ca': '~/.mysql/root.crt'})
+#                       ssl={'ca': '/Users/artem/.mysql/root.crt'}
+#                       )
 
-# mydb = mysql.connector.connect(
-#     host="rc1a-zuyqcvblbiqlxj7m.mdb.yandexcloud.net",
-#     user=DB_USER,
-#     password=DB_PASS,
-#     database=DB_NAME,
-# )
+mydb = mysql.connector.connect(
+     host="rc1a-l7mf9thjhi1qacrh.mdb.yandexcloud.net",
+     user=DB_USER,
+     password=DB_PASS,
+     database=DB_NAME,
+)
 
 mycursor = mydb.cursor()
 

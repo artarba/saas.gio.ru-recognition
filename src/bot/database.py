@@ -5,21 +5,26 @@ import pathlib
 import pygments
 import dotenv
 
-token_path = dotenv.find_dotenv()
-dotenv.load_dotenv(dotenv_path=token_path)
-DB_PASS = os.getenv('db_pass')
-DB_NAME = os.getenv('database')
-DB_USER = os.getenv('db_user')
+#token_path = dotenv.find_dotenv()
+#dotenv.load_dotenv(dotenv_path=token_path)
+#DB_PASS = os.getenv('db_pass')
+#DB_NAME = os.getenv('database')
+#DB_USER = os.getenv('db_user')
 
-main_path = os.getenv('main_path')
-print(main_path)
-print(DB_NAME, DB_PASS, DB_USER)
-print('\n OTDIHAEM HOROSHO \n')
+DB_USER = 'artem'
+DB_PASS = '898989qW!'
+DB_NAME = 'bmc'
+
+#main_path = os.getenv('main_path')
+main_path = os.getcwd()
+#print(main_path)
+#print(DB_NAME, DB_PASS, DB_USER)
+#print('\n OTDIHAEM HOROSHO \n')
 fds = os.listdir(main_path + '/result')
 
 
 mydb = mysql.connector.connect(
-    host="localhost",
+    host="rc1a-l7mf9thjhi1qacrh.mdb.yandexcloud.net",
     user=DB_USER,
     password=DB_PASS,
     database=DB_NAME,

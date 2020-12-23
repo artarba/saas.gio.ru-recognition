@@ -1,30 +1,14 @@
 version: "3.4"
 
 services:
-#  db:
-#    image: mysql
-#    command: --default-authentication-plugin=mysql_native_password
-#    restart: always
-#    environment:
-#      MYSQL_ROOT_PASSWORD: root
-#      MYSQL_DATABASES: mydb
-#      MYSQL_USER: user
-#      MYSQL_PASSWORD: user
-#
-#  adminer:
-#    image: adminer
-#    restart: always
-#    ports:
-#    - 8080:8080
-
   bot:
     build: ./src/bot
-    network_mode: host
+    #network_mode: host
     container_name: bot
     restart: always
     environment:
-      - DOCKER_HOST=localhost
-      - PYTHONPATH=/usr/local/bin/python3
+     # - DOCKER_HOST=localhost
+     # - PYTHONPATH=/usr/local/bin/python3
       - main_path=/src/bot
       - database=bmc
       - db_user=artem
@@ -32,18 +16,20 @@ services:
       - TOKEN=1024821400:AAGkwTBjUlObRfYWhDUI9zwNAkWTNl82Reo
     expose:
       - 3500
-#  nginx:
-#    build: ./nginx
-#    container_name: nginx
-#    restart: always
-#    ports:
-#      - "8000:8000"
-#  django:
-#    build: ./src/django
-#    network_mode: host
-#    container_name: django
-#    command: python manage.py runserver 0.0.0.0:8001
-#    ports:
-#    - 8001:8001
-#    env_file:
-#      - .env
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "8000:8000"
+
+  django:
+    build: ./src/django
+    #network_mode: host
+    container_name: django
+    command: python manage.py runserver 0.0.0.0:8001
+    ports:
+    - 8001:8001
+    env_file:
+      - .env

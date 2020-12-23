@@ -12,6 +12,8 @@ import dotenv
 token_path = dotenv.find_dotenv()
 dotenv.load_dotenv(dotenv_path=token_path)
 TOKEN = os.getenv('TOKEN')
+print(TOKEN)
+print(token_path)
 
 bot = Bot(token=TOKEN, parse_mode=types.ParseMode.HTML)
 storage = MemoryStorage()
